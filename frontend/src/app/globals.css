@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  /* === AutoCRM Design Tokens === */
+  --ink: #0B1120;
+  --ink-soft: #131C2E;
+  --ink-line: #22304A;
+
+  --paper: #F5F6F8;
+  --card: #FFFFFF;
+  --line: #E3E6EB;
+  --muted: #64748B;
+  --muted-soft: #94A3B8;
+  --text: #0F172A;
+
+  --accent: #FF5A1F;
+  --accent-soft: #FFE7DA;
+  --accent-dark: #C8430E;
+
+  --teal: #0EA894;
+  --teal-soft: #DCFAF4;
+
+  --amber: #F2A93B;
+  --amber-soft: #FCEFD7;
+
+  --red: #E0464C;
+  --red-soft: #FBE2E3;
+
+  --blue: #3E6AE1;
+  --blue-soft: #E4ECFD;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-text: var(--text);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-red: var(--red);
+  --color-red-soft: var(--red-soft);
+  --color-blue: var(--blue);
+  --color-blue-soft: var(--blue-soft);
+
+  --font-display: "Avenir Next", "Segoe UI Semibold", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: white; }
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

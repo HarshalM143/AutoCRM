@@ -373,7 +373,7 @@ GitHub:
 https://github.com/HarshalM143
 
 LinkedIn:
-https://wwww.linkedin.com/in/harshalmahajan001
+https://www.linkedin.com/in/harshalmahajan001
 
 ---
 

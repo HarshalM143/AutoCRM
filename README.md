@@ -1,208 +1,392 @@
-# AutoCRM — Enterprise Automobile CRM Platform
+# 🚗 AutoCRM Enterprise
 
-> A production-grade CRM system inspired by Tata Motors dealership operations.
-> Full-stack: Next.js 15 · FastAPI · PostgreSQL · Zustand · React Query · Recharts · dnd-kit
+A modern enterprise-grade Customer Relationship Management (CRM) platform designed for automobile dealerships to manage leads, customers, inventory, quotations, financing, service operations, support tickets, and business analytics from a single dashboard.
+
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## Quick Start
+## 📌 Overview
 
-### 1. Prerequisites
-- Node.js 20+, Python 3.12+, PostgreSQL 16, (optional) Docker
+AutoCRM is a full-stack dealership management platform built to streamline automotive sales and service workflows.
 
-### 2. Backend
+The platform provides:
+
+* Lead Management
+* Customer 360° Profiles
+* Vehicle Inventory Management
+* Test Drive Scheduling
+* Quotation Generation
+* Loan & Insurance Tracking
+* Service Job Management
+* Support Ticket System
+* AI Assistant & Sales Insights
+* Dashboard Analytics
+* Audit Logging & Security
+
+---
+
+# ✨ Features
+
+## 📊 Executive Dashboard
+
+* Revenue KPIs
+* Sales Funnel Metrics
+* Vehicle Inventory Overview
+* Monthly Trends
+* Branch Performance
+* Activity Widgets
+* Real-time Notifications
+
+---
+
+## 🎯 Lead Management
+
+* Kanban Pipeline
+* Lead Scoring
+* Lead Source Tracking
+* Sales Representative Assignment
+* Follow-up Management
+* Conversion Tracking
+
+Pipeline Stages:
+
+* New Lead
+* Contacted
+* Qualified
+* Negotiation
+* Won
+* Lost
+
+---
+
+## 👤 Customer 360°
+
+Complete customer profile including:
+
+* Personal Information
+* Contact Details
+* Purchase History
+* Test Drives
+* Quotations
+* Loan Information
+* Insurance Information
+* Service History
+* Support Tickets
+
+---
+
+## 🚘 Vehicle Inventory
+
+Manage:
+
+* Hatchbacks
+* Sedans
+* SUVs
+* EVs
+
+Features:
+
+* Inventory Tracking
+* Stock Monitoring
+* Category Filters
+* Vehicle Specifications
+* Availability Status
+
+---
+
+## 🛣 Test Drive Management
+
+* Schedule Test Drives
+* Customer Assignment
+* Sales Executive Assignment
+* Feedback Collection
+* Rating Management
+
+---
+
+## 💰 Quotations
+
+Generate:
+
+* Vehicle Price Breakdown
+* Taxes
+* Registration Charges
+* Insurance Charges
+* Accessories Cost
+* Final On-Road Price
+
+---
+
+## 🏦 Finance Module
+
+### Loan Management
+
+* Loan Tracking
+* Approval Status
+* Bank Assignment
+* Loan Amount Tracking
+
+### EMI Calculator
+
+* Real-time EMI Calculation
+* Interest Rate Support
+* Tenure Selection
+
+### Insurance Management
+
+* Policy Tracking
+* Expiry Monitoring
+* Renewal Management
+
+---
+
+## 🔧 Service Management
+
+### Service Jobs
+
+* Job Cards
+* Service Status
+* Assigned Technician
+* Cost Tracking
+
+### Spare Parts Inventory
+
+* Parts Tracking
+* Stock Levels
+* Low Stock Alerts
+
+---
+
+## 🎫 Support Center
+
+* Ticket Creation
+* Priority Levels
+* SLA Tracking
+* Ticket Assignment
+* Resolution Workflow
+
+---
+
+## 🤖 AI Assistant
+
+AI-powered capabilities:
+
+* Sales Forecasting
+* Follow-up Suggestions
+* Customer Insights
+* CRM Query Assistance
+
+---
+
+## 📋 Audit Logs
+
+Track:
+
+* User Actions
+* Record Updates
+* Security Events
+* System Activity
+
+---
+
+# 🏗 Architecture
+
+## Frontend
+
+* Next.js 15
+* React
+* TypeScript
+* Tailwind CSS
+* ShadCN UI
+
+## Backend
+
+* FastAPI
+* SQLAlchemy
+* Pydantic
+* JWT Authentication
+
+## Database
+
+* PostgreSQL
+
+---
+
+# 🗄 Database Modules
+
+* Users
+* Roles
+* Customers
+* Leads
+* Vehicles
+* Quotations
+* Test Drives
+* Loans
+* Insurance
+* Service Jobs
+* Spare Parts
+* Tickets
+* Notifications
+* Audit Logs
+
+---
+
+# 🔐 Authentication
+
+Features:
+
+* JWT Access Tokens
+* Refresh Tokens
+* Role-Based Access Control
+* Secure Password Hashing
+
+Roles:
+
+* Admin
+* Sales Manager
+* Sales Executive
+* Service Manager
+* Service Advisor
+
+---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/HarshalM143/AutoCRM.git
+cd AutoCRM
+```
+
+## Backend Setup
 
 ```bash
 cd backend
+
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
 pip install -r requirements.txt
-
-# Copy and configure .env
-cp .env.example .env
-
-# Create tables & seed demo data
-PYTHONPATH=. python app/db/init_db.py
-PYTHONPATH=. python app/db/seed.py
-
-# Start server
-PYTHONPATH=. uvicorn app.main:app --reload --port 8000
 ```
 
-API docs available at: http://localhost:8000/docs
+Create `.env`
 
-### 3. Frontend
+```env
+DATABASE_URL=postgresql+psycopg2://postgres:password@localhost:5432/autocrm
+
+SECRET_KEY=your-secret-key
+
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+
+Initialize Database
+
+```bash
+python app/db/init_db.py
+python app/db/seed.py
+```
+
+Run Backend
+
+```bash
+python -m uvicorn app.main:app --reload --port 8000
+```
+
+---
+
+## Frontend Setup
 
 ```bash
 cd frontend
-cp .env.example .env.local      # set NEXT_PUBLIC_API_URL
+
 npm install
-npm run dev                     # http://localhost:3000
+
+npm run dev
 ```
 
-### 4. Docker (all-in-one)
+Frontend:
 
-```bash
-cp backend/.env.example backend/.env
-docker compose up --build
+```text
+http://localhost:3000
 ```
 
----
+Backend:
 
-## Demo Credentials (password: `Demo@123`)
-
-| Role              | Email                      |
-|-------------------|----------------------------|
-| Super Admin       | admin@autocrm.in           |
-| Branch Manager    | manager.chg@autocrm.in     |
-| Sales Executive   | sales1@autocrm.in          |
-| Service Advisor   | service1@autocrm.in        |
-| Finance Executive | finance1@autocrm.in        |
-| Customer Support  | support1@autocrm.in        |
-
----
-
-## Architecture
-
+```text
+http://localhost:8000
 ```
-autocrm/
-├── backend/
-│   └── app/
-│       ├── core/           # Config, security (JWT, bcrypt)
-│       ├── db/             # SQLAlchemy engine, session, init_db, seed
-│       ├── models/         # 20 SQLAlchemy ORM models + enums
-│       ├── schemas/        # Pydantic v2 request/response schemas
-│       ├── api/
-│       │   └── v1/
-│       │       └── endpoints/  # 17 REST routers
-│       └── main.py         # FastAPI app + CORS
-└── frontend/
-    └── src/
-        ├── app/
-        │   ├── (app)/      # Protected routes (auth guard layout)
-        │   │   ├── dashboard/
-        │   │   ├── leads/
-        │   │   ├── customers/[id]/
-        │   │   ├── inventory/
-        │   │   ├── test-drives/
-        │   │   ├── quotations/
-        │   │   ├── service/
-        │   │   ├── finance/
-        │   │   ├── support/
-        │   │   ├── ai/
-        │   │   ├── audit-logs/
-        │   │   └── settings/
-        │   ├── login/
-        │   └── forgot-password/
-        ├── components/
-        │   ├── layout/     # Sidebar, Topbar
-        │   └── ui/         # Card, Badge, Gauge
-        ├── lib/            # axios client (JWT refresh interceptor), utils
-        ├── store/          # Zustand auth store (persisted)
-        └── types/          # Shared TypeScript types
+
+Swagger Docs:
+
+```text
+http://localhost:8000/docs
 ```
 
 ---
 
-## Database Schema (20 tables)
+# 🧪 Demo Credentials
 
-| Table               | Description                                   |
-|---------------------|-----------------------------------------------|
-| branchs             | Dealership branches                           |
-| users               | Staff accounts with role-based access         |
-| customers           | Customer master with full contact details     |
-| vehicles            | Inventory with category, status, pricing      |
-| leads               | Full pipeline with AI scoring                 |
-| leadactivitys       | Timestamped activity log per lead             |
-| testdrives          | Scheduling, assignment, feedback, rating      |
-| quotations          | On-road price breakdowns with EMI             |
-| bookings            | Payment and delivery workflow                 |
-| loanapplications    | Multi-bank loan tracking with EMI calc        |
-| insurancepolicys    | Policy lifecycle (active → renewal → claim)   |
-| servicejobs         | Job cards with status workflow                |
-| spareparts          | Parts inventory with low-stock alerts         |
-| purchaseorders      | Vendor POs for parts replenishment            |
-| tickets             | Support tickets with SLA tracking             |
-| documents           | Customer document vault with version control  |
-| communicationlogs   | Every email/SMS/WhatsApp/call interaction     |
-| messagetemplates    | Reusable communication templates              |
-| notifications       | In-app notification feed per user             |
-| auditlogs           | Immutable log of every system action          |
-
----
-
-## API Endpoints (v1)
-
-| Prefix              | Key endpoints                                              |
-|---------------------|------------------------------------------------------------|
-| `/auth`             | login, register, refresh, forgot-password, reset-password |
-| `/customers`        | CRUD + `/{id}/360` (Customer 360 aggregated view)         |
-| `/leads`            | CRUD + activities + AI scoring on every status change     |
-| `/vehicles`         | CRUD + inventory-summary with low-stock alerts            |
-| `/test-drives`      | Schedule, update status, record feedback                  |
-| `/quotations`       | Create with full on-road price breakdown                  |
-| `/bookings`         | Booking → payment → delivery workflow                     |
-| `/finance/loans`    | Loan applications + approval tracking                     |
-| `/finance/insurance`| Policy CRUD + status lifecycle                            |
-| `/finance/emi-calculator` | Standard EMI formula endpoint                       |
-| `/service/jobs`     | Job cards booked → inspection → in_progress → delivered   |
-| `/service/parts`    | Spare parts inventory + low-stock report                  |
-| `/tickets`          | Support tickets with SLA auto-calculation                 |
-| `/dashboard`        | Live KPIs, trend charts, branch performance               |
-| `/dashboard/widgets`| Today's appointments, deliveries, service alerts          |
-| `/ai/chat`          | Natural-language CRM queries                              |
-| `/ai/follow-up-generator` | Email / WhatsApp / call-script generation           |
-| `/ai/service-reminders`  | Predict upcoming service requirements                |
-| `/ai/sales-forecast`     | Next-month units & revenue prediction                |
-| `/branches`         | Multi-branch management + per-branch reports              |
-| `/users`            | User management with RBAC                                 |
-| `/notifications`    | Per-user notification feed                                |
-| `/audit-logs`       | Immutable audit trail (super_admin only)                  |
-
----
-
-## Security
-
-- JWT access tokens (30 min) + refresh tokens (7 days)
-- bcrypt password hashing
-- Role-based access control (6 roles)
-- Automatic token refresh via axios interceptor
-- Audit log on every login and key mutation
-- CORS configured per environment
-
----
-
-## Deployment
-
-### Frontend → Vercel
-```bash
-# Set environment variable in Vercel dashboard:
-NEXT_PUBLIC_API_URL=https://your-backend.railway.app/api/v1
-```
-
-### Backend → Railway / Render
-```bash
-# Set environment variables:
-DATABASE_URL=postgresql+psycopg2://...
-SECRET_KEY=<long random string>
-BACKEND_CORS_ORIGINS=["https://your-frontend.vercel.app"]
-```
-
-### Database → Supabase / Neon
-```
-1. Create project in Supabase
-2. Copy "Transaction pooler" connection string
-3. Set as DATABASE_URL in backend env
-4. Run: python app/db/init_db.py && python app/db/seed.py
+```text
+Email: admin@autocrm.in
+Password: Demo@123
 ```
 
 ---
 
-## Design System
+# 📈 Future Enhancements
 
-**Palette:** Instrument-cluster dark chrome (`#0B1120`) + ignition orange accent (`#FF5A1F`)  
-**Signature element:** Gauge component on login screen and dashboard — tachometer-style arc inspired by automotive instrument panels  
-**Type:** System font stacks approximating Space Grotesk (display) + Inter (body) + JetBrains Mono (data)  
-**Dark sidebar:** High-contrast navigation panel inspired by modern automotive HMI screens  
+* WhatsApp Integration
+* Email Automation
+* Razorpay Payments
+* Document Uploads
+* AI Lead Scoring
+* Mobile Application
+* Real-time Notifications
+* Multi-Branch Analytics
 
 ---
 
-*Built as an enterprise portfolio project. All Tata Motors branding is inspirational; this is an independent open-source project.*
+# 👨‍💻 Developer
+
+Harshal Mahajan
+
+BSc IT | Software Developer
+
+Tech Stack:
+
+* Python
+* FastAPI
+* PostgreSQL
+* Next.js
+* TypeScript
+* Tailwind CSS
+
+GitHub:
+https://github.com/HarshalM143
+
+LinkedIn:
+https://wwww.linkedin.com/in/harshalmahajan001
+
+---
+
+# ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the repository
+
+🍴 Fork the project
+
+🚀 Contribute improvements
+
+---
+
+MIT License © 2026 Harshal Mahajan
